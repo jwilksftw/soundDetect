@@ -61,7 +61,7 @@ def bobberfish():
 
                 #starting recording
                 frames=[]
-                for i in range(0,int(RATE/CHUNK*RECORD_SECONDS)):
+                for i in range(0,100):
                     data=stream.read(CHUNK)
                     data_chunk=array('h',data)
                     vol=max(data_chunk)
@@ -75,16 +75,21 @@ def bobberfish():
                         return                    
                     else:
                         print("nothing")
+                        #print(i)
+                        if i==100:
+                            return
 
 
 
             # Write image with red box to file
             cv.imwrite('./ImageInImage/assets/foundCog.png',img_rgb)
             #Moves if the bobber hasn't been found
-            hc.move((1340, c),.2)
+            hc.move((1310, c),.2)
 
 while True:
     #Set '1' key to cast fishing
+    hc.move((random.randint(1500, 1700), random.randint(500, 700)),.4)
+    hc.move((random.randint(1500, 1700), random.randint(200, 300)),.4)
     keyboard.press_and_release('1')
     bobberfish()
     time.sleep(5)
