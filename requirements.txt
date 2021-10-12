@@ -1,4 +1,4 @@
-opencv-python==4.1.0.25
+opencv-python==4.2.0.32
 pyaudio==0.2.11
 keyboard==0.13.3
 mouse==0.7.0
